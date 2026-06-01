@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+
+  <style>
+
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+    }
+
+    .form-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      margin: 100px auto;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #logoutBtn {
+      background: #f44336;
+    }
+
+  </style>
+
+</head>
+
+<body>
+    <script type="module" src="./scripts/lesson12.js"></script>
+
+  <div class="form-box">
+
+    <h2>Регистрация</h2>
+
+    <form id="register-form">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Имя"
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Пароль"
+        >
+
+        <button type="submit" id="register-btn">
+            Зарегистрироваться
+        </button>
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

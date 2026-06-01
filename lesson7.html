@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Color Box</title>
+<style>
+/* #box {
+  width: 300px;
+  height: 300px;
+  background: gray;
+} */
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .tabs {
+      width: 220px;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #ccc;
+    }
+
+    .tab-btn {
+      padding: 20px;
+      border: none;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: #ddd;
+    }
+
+    .tab-btn.active {
+      background: #bbb;
+      font-weight: bold;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+    .show {
+      display: none;
+    }
+    .show.active{
+      display: block;
+    }
+</style>
+</head>
+<body>
+<!-- <div id="box"></div> -->
+  <div class="container">
+    <button class="show-hide-btn">Show/Hide text</button>
+  </div>
+  <div class="content">
+    <div class="show active">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque omnis soluta atque est quae aperiam natus impedit numquam ipsa, iste, nam libero consequuntur magnam labore blanditiis voluptatum fugit dolor nemo.</p>
+      </div>
+    </div>
+  <div class="container">
+
+    <div class="tabs">
+
+      <button class="tab-btn active" data-tab="tab1">
+        Home
+      </button>
+
+      <button class="tab-btn" data-tab="tab2">
+        Profile
+      </button>
+
+      <button class="tab-btn" data-tab="tab3">
+        Settings
+      </button>
+
+    </div>
+
+    <div class="content">
+
+      <div class="tab-content active" id="tab1">
+        <h2>Home</h2>
+        <p>Home content</p>
+      </div>
+
+      <div class="tab-content" id="tab2">
+        <h2>Profile</h2>
+        <p>Profile content</p>
+      </div>
+
+      <div class="tab-content" id="tab3">
+        <h2>Settings</h2>
+        <p>Settings content</p>
+      </div>
+
+    </div>
+
+  </div>
+<script type="module" src="./scripts/lesson7.js"></script>
+</body>
+</html>
