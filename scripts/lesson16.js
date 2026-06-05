@@ -1,0 +1,31 @@
+const canvas = document.getElementById('myCanvas');
+const width = window.innerWidth;
+const height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+const context = canvas.getContext('2d');
+const dx = 50;
+let x = 0;
+// setInterval(() => {
+//     context.clearRect(0, 0, width, height);
+//     context.fillRect(x, 0, 70, 70);
+//     x += dx;
+// }, 300);
+// setInterval(() => {
+//     context.clearRect(0, 0, width, height);
+//     context.strokeStyle = 'blue';
+//     context.strokeRect(x, 0, 70, 70);
+//     context.stroke();
+//     x += dx;
+// // }, 300);
+// context.moveTo(50, 50);
+// context.lineTo(300, 50);
+// context.lineTo(150, 80);
+// context.closePath();
+// context.strokeStyle = 'blue';
+// context.lineWidth = 2;
+// context.lineCap = "butt";
+// context.stroke();
+// context.stroke();
+context. arc(300,300,80,0,2*Math.PI,false);
+context.stroke();

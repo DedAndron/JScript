@@ -1,89 +1,242 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Регистрация</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
   <style>
-
-    body {
-      font-family: Arial;
-      background: #f2f2f2;
-    }
-
-    .form-box {
-      width: 300px;
-      background: white;
-      padding: 20px;
-      margin: 100px auto;
-      border-radius: 10px;
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+    * {
       box-sizing: border-box;
     }
-
-    button {
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      width: 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input:not([type="radio"]):not([type="checkbox"]),
+    select,
+    textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 15px;
-      background: #4caf50;
-      color: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 5px;
+    }
+    .skills label,
+    .agree label,
+    .gender-group label {
+      display: inline;
+      font-weight: normal;
+    }
+    .gender-group,
+    .skills {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
       border: none;
+      border-radius: 6px;
+      background: #4a90e2;
+      color: white;
+      font-size: 16px;
       cursor: pointer;
+      transition: 0.2s;
     }
-    #logoutBtn {
-      background: #f44336;
+    button:hover {
+      background: #3578c9;
     }
-
+    /* ERROR */
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+      border: 2px solid red;
+      background: #ffeaea;
+    }
   </style>
-
 </head>
-
 <body>
-    <script type="module" src="./scripts/lesson12.js"></script>
-
-  <div class="form-box">
-
-    <h2>Регистрация</h2>
-
+  <div class="form-container">
+    <h1>Registration Form</h1>
     <form id="register-form">
-
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
         <input
-            type="text"
-            name="name"
-            placeholder="Имя"
+          type="text"
+          id="name"
+          name="name"
         >
-
+      </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
         <input
-            type="email"
-            name="email"
-            placeholder="Email"
+          type="email"
+          id="email"
+          name="email"
         >
-
+      </div>
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
         <input
-            type="password"
-            name="password"
-            placeholder="Пароль"
+          type="password"
+          id="password"
+          name="password"
         >
-
-        <button type="submit" id="register-btn">
-            Зарегистрироваться
-        </button>
-        <button id="logoutBtn">
-            Logout
-        </button>
-
+      </div>
+      <!-- Birthday -->
+      <div class="form-group">
+        <label for="birthdate">
+          Date of birth
+        </label>
+        <input
+          type="date"
+          id="birthdate"
+          name="birthdate"
+        >
+      </div>
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+380XXXXXXXXX"
+        >
+      </div>
+      <!-- Country -->
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option>Germany</option>
+          <option>Ukraine</option>
+          <option>Bulgaria</option>
+          <option>USA</option>
+        </select>
+      </div>
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="gender-group">
+          <div>
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              checked
+            >
+            <label for="male">Male</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+            >
+            <label for="female">Female</label>
+          </div>
+        </div>
+      </div>
+      <!-- Skills -->
+      <div class="form-group skills">
+        <label>Programming skills</label>
+        <div>
+          <input
+            type="checkbox"
+            id="html"
+            name="skills"
+          >
+          <label for="html">HTML</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="css"
+            name="skills"
+          >
+          <label for="css">CSS</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="js"
+            name="skills"
+          >
+          <label for="js">JavaScript</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="csharp"
+            name="skills"
+          >
+          <label for="csharp">C#</label>
+        </div>
+      </div>
+      <!-- Comment -->
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea
+          id="comment"
+          name="comment"
+          rows="5"
+        ></textarea>
+      </div>
+      <!-- Agreement -->
+      <div class="form-group agree">
+        <input
+          type="checkbox"
+          id="agree"
+          name="agree"
+        >
+        <label for="agree">
+          I agree with terms and conditions
+        </label>
+      </div>
+      <!-- Button -->
+      <button type="submit">
+        Register
+      </button>
     </form>
-
   </div>
-
+  <script type="module" src="./scripts/lesson12.js"></script>
 </body>
 </html>
