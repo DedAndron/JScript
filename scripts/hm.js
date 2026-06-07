@@ -74,7 +74,6 @@ const themeSelect = document.getElementById('theme-select');
 const langSelect = document.getElementById('lang-select');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
-    // Тут можна додати валідацію форми або інші дії при відправці
 });
 function applyLanguage(lang) {
     document.getElementById('h1')
@@ -166,9 +165,10 @@ function applyTheme(theme) {
     );
     document.body.classList.add(theme);
 }
-themeSelect.addEventListener('change', () => {
-    const theme = themeSelect.value;
-    setCookie('theme', theme);
+themeSelect.addEventListener( 'change', () => { 
+    const theme = themeSelect.value;  
+    applyTheme(theme);
+    setCookie( 'theme' , theme );
 });
 langSelect.addEventListener( 'change', () => { 
     const lang = langSelect.value; 

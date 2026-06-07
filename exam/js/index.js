@@ -25,5 +25,19 @@ search_form.addEventListener('submit', async(e)=>{
         </div>`;
     });
 });
-
-
+const N = 20;
+const top_meals_container = document.getElementById('top-meals-container')
+const top_data = [];
+for(i=0;i<N;i++){
+    const response = await fetch(`http://www.themealdb.com/api/json/v1/1/random.php`)
+    const data = await response.json();
+    top_data.push(data);
+}
+top_data.meals.forEach(meal =>{
+    `<div> 
+        <h2> ${meal.strMeal} </h2> 
+        <img src="${meal.strMealThumb}"> 
+        <p> Category: ${meal.strCategory} </p> 
+         <p> Area: ${meal.strArea} </p> 
+    </div>`;
+});

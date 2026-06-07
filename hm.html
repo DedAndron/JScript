@@ -162,10 +162,107 @@
         display: flex;
         gap: 10px;
       }
+      body.light {
+        background: linear-gradient(
+          135deg,
+          #f8fafc,
+          #dbeafe
+        );
+
+        color: #111827;
+      }
+
+      body.light .form-card {
+        background: white;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      }
+
+      body.light .form-card p {
+        color: #475569;
+      }
+
+      body.light label {
+        color: #334155;
+      }
+
+      body.light input,
+      body.light textarea,
+      body.light select {
+        background: #f1f5f9;
+        color: #111827;
+        border: 1px solid #cbd5e1;
+      }
+
+      body.light input:focus,
+      body.light textarea:focus,
+      body.light select:focus {
+        box-shadow: 0 0 0 3px #60a5fa;
+      }
+
+      body.light .radio-group label,
+      body.light .checkbox-group label {
+        background: #f1f5f9;
+        color: #111827;
+      }
+
+      body.light .reset-btn {
+        background: #cbd5e1;
+        color: #111827;
+      }
+
+      body.light .reset-btn:hover {
+        background: #94a3b8;
+      }
+
+      /* ========================= */
+      /* DARK THEME */
+      /* ========================= */
+
+      body.dark {
+        background: linear-gradient(
+          135deg,
+          #1e293b,
+          #0f172a
+        );
+
+        color: white;
+      }
+
+      body.dark .form-card {
+        background: #111827;
+      }
+
+      body.dark .form-card p {
+        color: #94a3b8;
+      }
+
+      body.dark label {
+        color: #cbd5e1;
+      }
+
+      body.dark input,
+      body.dark textarea,
+      body.dark select {
+        background: #1e293b;
+        color: white;
+      }
+
+      body.dark .radio-group label,
+      body.dark .checkbox-group label {
+        background: #1e293b;
+      }
+
+      body.dark .reset-btn {
+        background: #334155;
+        color: white;
+      }
+
+      body.dark .reset-btn:hover {
+        background: #475569;
+      }
     </style>
-    <script defer src="./scripts/lesson9.js"></script>
   </head>
-  <body>
+  <body class="light">
     <div class="elements">
         <select id="theme-select">
             <option value="light">Light</option>
