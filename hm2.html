@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #141414;
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f5c518;
+        }
+        /* SEARCH FORM */
+        #search-form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        #movie-title,
+        #movie-type {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        #movie-title {
+            width: 350px;
+        }
+        #movie-type {
+            width: 150px;
+        }
+        #search-form button {
+            background: #f5c518;
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        #search-form button:hover {
+            background: #ffd84d;
+        }
+
+        /* MOVIES GRID */
+
+        #movies-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fill, minmax(250px, 1fr));
+
+            gap: 25px;
+        }
+
+        .movie-card {
+            background: #1f1f1f;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,.3);
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .movie-info p {
+            margin-bottom: 8px;
+            color: #bbb;
+        }
+
+        .details-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+
+            background: #f5c518;
+            color: black;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .details-btn:hover {
+            background: #ffd84d;
+        }
+
+        /* PAGINATION */
+
+        #pagination {
+            margin-top: 40px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        #pagination button {
+            padding: 10px 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #f5c518;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        #page-number {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* MODAL */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,.85);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+
+            background: #222;
+
+            width: 900px;
+
+            max-width: 95%;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            position: relative;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+        }
+
+        #close-modal {
+
+            position: absolute;
+
+            top: 15px;
+            right: 20px;
+
+            font-size: 32px;
+
+            cursor: pointer;
+        }
+
+        #movie-details {
+
+            display: flex;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        #movie-details img {
+
+            width: 300px;
+
+            border-radius: 10px;
+        }
+
+        .movie-details-info {
+
+            flex: 1;
+        }
+
+        .movie-details-info h2 {
+
+            margin-bottom: 20px;
+
+            color: #f5c518;
+        }
+
+        .movie-details-info p {
+
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            #movie-details {
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+            #movie-details img {
+
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .movie-details-info {
+
+                width: 100%;
+            }
+
+            #movie-title {
+
+                width: 100%;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Search</h1>
+        <form id="search-form">
+            <input
+                type="text"
+                id="movie-title"
+                placeholder="Movie title"
+            >
+            <select id="movie-type">
+                <option value="">
+                    All
+                </option>
+                <option value="movie">
+                    Movie
+                </option>
+                <option value="series">
+                    Series
+                </option>
+                <option value="episode">
+                    Episode
+                </option>
+            </select>
+            <button type="submit">
+                Search
+            </button>
+        </form>
+        <div id="movies-container">
+        </div>
+        <div id="pagination">
+            <button id="prev-btn">
+                Previous
+            </button>
+            <span id="page-number">
+                1
+            </span>
+            <button id="next-btn">
+                Next
+            </button>
+        </div>
+    </div>
+    <div
+        id="movie-modal"
+        class="modal"
+    >
+        <div class="modal-content">
+            <span id="close-modal">
+                ×
+            </span>
+            <div id="movie-details">
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./scripts/hm2.js"></script>
+</body>
+</html>

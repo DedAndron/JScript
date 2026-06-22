@@ -1,0 +1,1 @@
+{"version":3,"file":"ClearCanvas.d.ts","sourceRoot":"","sources":["ClearCanvas.ts"],"names":[],"mappings":"AAAA,cAAM,WAAW;IACb,MAAM,EAAE,iBAAiB,CAAC;IAC1B,GAAG,EAAE,wBAAwB,GAAG,IAAI,CAAC;;IAKrC,KAAK,CAAC,MAAM,EAAE,iBAAiB,EAAE,GAAG,EAAE,wBAAwB,GAAG,IAAI;CAKxE;AACD,eAAe,WAAW,CAAC"}
